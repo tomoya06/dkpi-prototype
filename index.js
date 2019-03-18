@@ -9,8 +9,6 @@ const user = {
 
 const dpkiInstance = new w3.eth.Contract(contract.abi, contract.address, {
     from: user.address,
-    gas: 4712388,
-    gasPrice: '1000000'
 })
 
 dpkiInstance.methods.getIdentityNumber().call().then(result => console.log(result))
