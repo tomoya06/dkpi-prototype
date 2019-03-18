@@ -1,0 +1,27 @@
+{
+  "name": "dkpi-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomoya06/dkpi-prototype.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomoya06/dkpi-prototype/issues"
+  },
+  "homepage": "https://github.com/tomoya06/dkpi-prototype#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "web3": "^1.0.0-beta.48"
+  }
+}
