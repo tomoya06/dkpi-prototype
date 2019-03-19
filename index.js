@@ -1,22 +1,33 @@
 const Web3 = require('web3')
-const contract = require('./src/contract')
 
-const w3 = new Web3(new Web3.providers.WebsocketProvider('ws://127.0.0.1:8545'))
+const { 
+    deployContract,
+    unlockAccount
+} = require("./lib/ethapi")
+
+const contract = require('./build/contracts/DPKI.json')
+
+const w3 = new Web3(new Web3.providers.WebsocketProvider('ws://127.0.0.1:8546'))
 
 const user = {
-    address: '0xbd84ab4cafae0d3657c7d1272ee519cc19ca6557'
+    address: '0xb4f45a5ef3ef980b5051b940a0dcb8da5cfb6c59'
 }
 
-const dpkiInstance = new w3.eth.Contract(contract.abi, contract.address, {
-    from: user.address,
+unlockAccount(w3, user.address, '111').then((result) => {
+    if (!result) return 
+    deployContract(w3, contract, user.address)
 })
 
-dpkiInstance.methods.getIdentityNumber().call().then(result => console.log(result))
+// const dpkiInstance = new w3.eth.Contract(contract.abi, contract.address, {
+//     from: user.address,
+// })
 
-let addedIdentityEvt = dpkiInstance.events.AddedIdentity((error, result) => {
-    if (error) {
-        return console.error(error)
-    }
-    console.log(`[ADDED IDENTITY EVT]: ${result}`)
-})
+// dpkiInstance.methods.getIdentityNumber().call().then(result => console.log(result))
+
+// let addedIdentityEvt = dpkiInstance.events.AddedIdentity((error, result) => {
+//     if (error) {
+//         return console.error(error)
+//     }
+//     console.log(`[ADDED IDENTITY EVT]: ${result}`)
+// })
 

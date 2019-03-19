@@ -1,2 +1,4 @@
-/build/
 node_modules
+geth_data/geth
+geth_data/history
+**/*.ipc
