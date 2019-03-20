@@ -23,8 +23,8 @@ const deployed = {
 
 unlockAccount(w3, user.address, '111').then((result) => {
     if (!result) return 
-    sendContractTest(w3, contract, deployed.address, user.address)
-    // deployContract(w3, contract, user.address)
+    // sendContractTest(w3, contract, deployed.address, user.address)
+    deployContract(w3, contract, user.address)
 })
 
 // const dpkiInstance = new w3.eth.Contract(contract.abi, contract.address, {

@@ -86,4 +86,8 @@ contract DPKI {
         );
     }
     
+    function getIdentityNumber() public view returns (uint) {
+        return identityNumber;
+    }
+    
 }
