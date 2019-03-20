@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/tomoya06/dkpi-prototype#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "web3": "^1.0.0-beta.48"
+    "web3": "^0.20.7"
   }
 }
