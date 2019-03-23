@@ -11,3 +11,8 @@ datastore
 config
 datastore_spec
 version
+repo.lock
+keys
+
+# cert n key files
+*.pem
