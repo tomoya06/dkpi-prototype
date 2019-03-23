@@ -1,4 +1,13 @@
+# Node modules download folder
 node_modules
+
+# geth data folder
 geth_data/geth
 geth_data/history
-**/*.ipc
+
+# ipfs files and folder
+blocks
+datastore
+config
+datastore_spec
+version
