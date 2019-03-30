@@ -48,7 +48,8 @@ contract DPKI {
     
     function addSigner(address _signee) public {
         require(
-            identities[_signee].signer == address(0),
+            identities[_signee].signer == address(0) &&
+            bytes(identities[_signee].certFileHash).length == 0,
             "This identity has been signed"
         );
         
@@ -57,15 +58,16 @@ contract DPKI {
         emit AddedSigner(_signee, msg.sender);
     }
     
-    function signIdentity(address _signee, string memory _fileHash) public {
+    function saveCertFileHash(address _signee, string memory _fileHash) public {
         require(
+            identities[_signee].signer == msg.sender &&
+            msg.sender != _signee &&
             bytes(identities[msg.sender].ipAddr).length > 0 &&
             bytes(identities[msg.sender].pubkey).length > 0 &&
             bytes(identities[_signee].ipAddr).length > 0 &&
             bytes(identities[_signee].pubkey).length > 0 &&
             identities[_signee].signer == address(0) &&
-            bytes(identities[_signee].certFileHash).length == 0 &&
-            msg.sender != _signee,
+            bytes(identities[_signee].certFileHash).length == 0,
             "Illegal Signature Process"
         );
         
