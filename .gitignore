@@ -16,3 +16,7 @@ keys
 
 # cert n key files
 *.pem
+*.key
+*.pub
+*.csr
+*.srl
