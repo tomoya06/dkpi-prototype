@@ -22,10 +22,11 @@
   "homepage": "https://github.com/tomoya06/dkpi-prototype#readme",
   "dependencies": {
     "bignumber.js": "^8.1.1",
-    "cryptico": "^1.0.2",
+    "express": "^4.16.4",
     "ipfs": "^0.34.4",
+    "lodash": "^4.17.11",
     "node-forge": "^0.8.2",
-    "selfsigned": "^1.10.4",
+    "socket.io": "^2.2.0",
     "web3": "^0.20.7",
     "ws": "^6.2.1"
   }

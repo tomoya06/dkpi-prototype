@@ -1,3 +1,10 @@
-const { clientWSS } = require('../lib/WEBapi')
+const socketio = require('socket.io-client')
+const socket = socketio('http://localhost', {
+    query: 'foo=bar'
+}).connect()
 
-clientWSS('', '', 'ws://127.0.0.1:8080')
+socket.on('message', function(data) {
+    console.log(`RECEIVED: ${data}`)
+
+    socket.send('good')
+})
