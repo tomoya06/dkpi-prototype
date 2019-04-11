@@ -24,9 +24,12 @@ contract DPKI {
     
     function addIdentity(string memory _pubkey) public {
         require(
+            identities[msg.sender].no == 0 &&
             bytes(_pubkey).length > 0, 
             "Illegal Register"
         );
+        
+        identityNumber++;
         
         identities[msg.sender] = Identity(
             identityNumber,
@@ -34,8 +37,6 @@ contract DPKI {
             address(0),
             ""
         );
-        
-        identityNumber++;
         
         emit AddedIdentity(msg.sender);
     }

@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const forge = require('node-forge')
 
-let userConfig = require('./users/eth_config.useless.json')
+let userConfig = require('./users/eth_config.cp.json')
 const DPKI = require('./lib/DPKIapi')
 
 async function main() {
@@ -15,10 +15,8 @@ async function main() {
     await dpki.addIdentity(pubkeyPem)
     
     idNum = await dpki.getIdentityNumber()
-    console.log(idNum)
-
     let myID = await dpki.getIdentity(userConfig.user.address)
-    console.log(JSON.stringify(myID))
+    console.log(idNum, myID)
 }
 
 main()
