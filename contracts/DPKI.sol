@@ -7,14 +7,12 @@ contract DPKI {
     
     struct Identity {
         uint no;
-        string ipAddr;
         string pubkey;
         address signer;
         string certFileHash;
     }
     
     mapping (address => Identity) identities;
-    mapping (string => address) ipAddresses;
     
     uint identityNumber;
     
@@ -24,18 +22,14 @@ contract DPKI {
     // event SavedIdentityCertFile(address owner, string filehash);
     // event UpdateIdentityInfo(address owner, string infoName, string newValue, string certFileHash);
     
-    function addIdentity(string memory _ipAddr, string memory _pubkey) public {
+    function addIdentity(string memory _pubkey) public {
         require(
-            bytes(_ipAddr).length > 0 &&
-            bytes(_pubkey).length > 0 &&
-            bytes(identities[msg.sender].ipAddr).length == 0 &&
-            ipAddresses[_ipAddr] == address(0), 
+            bytes(_pubkey).length > 0, 
             "Illegal Register"
         );
         
         identities[msg.sender] = Identity(
             identityNumber,
-            _ipAddr,
             _pubkey,
             address(0),
             ""
@@ -55,9 +49,10 @@ contract DPKI {
     
     function addSigner(address _signee) public {
         require(
+            _signee != msg.sender &&
             identities[_signee].signer == address(0) &&
             bytes(identities[_signee].certFileHash).length == 0,
-            "This identity has been signed"
+            "Illegal Add Signer Process"
         );
         
         identities[_signee].signer = msg.sender;
@@ -69,9 +64,7 @@ contract DPKI {
         require(
             identities[_signee].signer == msg.sender &&
             msg.sender != _signee &&
-            bytes(identities[msg.sender].ipAddr).length > 0 &&
             bytes(identities[msg.sender].pubkey).length > 0 &&
-            bytes(identities[_signee].ipAddr).length > 0 &&
             bytes(identities[_signee].pubkey).length > 0 &&
             identities[_signee].signer == address(0) &&
             bytes(identities[_signee].certFileHash).length == 0,
@@ -83,24 +76,12 @@ contract DPKI {
         
         emit SignedIdentity(msg.sender, _signee);
     }
-    
-    // function saveCertFileHash(string memory _fileHash) public {
-    //     require(
-    //         bytes(identities[msg.sender].certFileHash).length == 0,
-    //         "You Have Owned A Certificate Already"
-    //     );
-        
-    //     identities[msg.sender].certFileHash = _fileHash;
-        
-    //     emit SavedIdentityCertFile(msg.sender, _fileHash);
-    // }
 
-    function getIdentity(address _addr) public view returns (uint, string memory, string memory, address, string memory) {
+    function getIdentity(address _addr) public view returns (uint, string memory, address, string memory) {
         require(identities[_addr].no >= 0, "This Address Has No Identity Yet");
 
         return (
             identities[_addr].no,
-            identities[_addr].ipAddr,
             identities[_addr].pubkey,
             identities[_addr].signer,
             identities[_addr].certFileHash
