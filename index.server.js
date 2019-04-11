@@ -3,7 +3,7 @@ const {
     generatePEM
 } = require('./lib/CERTapi')
 const DPKI = require('./lib/DPKIapi')
-const DClient = require('./lib/WEBCapi')
+const DServer = require('./lib/WEBapi')
 const {
     sleep
 } = require('./lib/util')
@@ -42,8 +42,8 @@ async function main() {
     sleep(sleepTime)
     console.log('WAKE UP')
 
-    console.log('CONNECTING TO SERVER...')
-    let dClient = new DClient(dpki, keypair)
+    console.log('STARTING WEBSOCKET SETVER...')
+    let dServer = new DServer(dpki, keypair)
 }
 
 main()
