@@ -1,18 +1,32 @@
-const _ = require('lodash')
-const forge = require('node-forge')
-
-let userConfig = require('./users/eth_config.useless.json')
+const { 
+    generateKeyPair,
+    generatePEM
+} = require('./lib/CERTapi')
 const DPKI = require('./lib/DPKIapi')
 
+let userConfig
+
 async function main() {
+    let argv = require('minimist')(process.argv.slice(2))
+    let configPath = argv['p']
+    if (!configPath) {
+        console.log('YOU NEED TO PASS A CONFIG FILE BY ADDING -p')
+        return
+    }
+    
+    userConfig = require(`${configPath}`)
+    if (!userConfig.user || !userConfig.user.address) {
+        console.log('ILLEGAL CONFIG FILE')
+        return
+    }
+    
     const dpki = new DPKI(userConfig)
     let idNum = await dpki.getIdentityNumber()
     console.log(idNum)
 
-    const pki = forge.pki
-    const keypair = pki.rsa.generateKeyPair({ bits: 2048, e: 0x10001 })
-    let pubkeyPem = pki.publicKeyToPem(keypair.publicKey)
-    await dpki.addIdentity(pubkeyPem)
+    const keypair = generateKeyPair()
+    let pem = generatePEM(keypair)
+    await dpki.addIdentity(pem.pub)
     
     idNum = await dpki.getIdentityNumber()
     console.log(idNum)
