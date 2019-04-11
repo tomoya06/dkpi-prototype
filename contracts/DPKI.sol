@@ -46,6 +46,13 @@ contract DPKI {
         emit AddedIdentity(msg.sender);
     }
     
+    function emitAddedIdentity() public {
+        require(
+            identities[msg.sender].signer == address(0)
+        );
+        emit AddedIdentity(msg.sender);
+    }
+    
     function addSigner(address _signee) public {
         require(
             identities[_signee].signer == address(0) &&
