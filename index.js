@@ -12,8 +12,8 @@ let userConfig
 
 async function main() {
     let argv = require('minimist')(process.argv.slice(2))
-    let configPath = argv['p']
-    let sleepTime = parseInt(argv['s'] || '5000')
+    let configPath = argv['p'] || './users/eth_config.cp.json'
+    let sleepTime = parseInt(argv['s'] || '1000')
     if (!configPath) {
         console.log('YOU NEED TO PASS A CONFIG FILE BY ADDING -p')
         return
