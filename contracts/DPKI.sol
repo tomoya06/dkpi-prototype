@@ -6,29 +6,25 @@ contract DPKI {
     enum Status { Waiting, Registered }
     
     struct Identity {
-        uint no;
+        string no;
         string pubkey;
         string DIDHash;
     }
     
     mapping (address => Identity) identities;
     
-    uint identityNumber;
-    
     event AddedIdentity(address addr);
     event AddedDIDHash(address addr);
     
-    function addIdentity(string memory _pubkey) public {
+    function addIdentity(string memory _no, string memory _pubkey) public {
         require(
-            identities[msg.sender].no == 0 &&
+            bytes(_no).length > 0 &&
             bytes(_pubkey).length > 0, 
             "Illegal Register"
         );
         
-        identityNumber++;
-        
         identities[msg.sender] = Identity(
-            identityNumber,
+            _no,
             _pubkey,
             ""
         );
@@ -41,7 +37,7 @@ contract DPKI {
         emit AddedDIDHash(msg.sender);
     }
 
-    function getIdentity(address _addr) public view returns (uint, string memory, string memory) {
+    function getIdentity(address _addr) public view returns (string memory, string memory, string memory) {
         return (
             identities[_addr].no,
             identities[_addr].pubkey,
@@ -49,8 +45,8 @@ contract DPKI {
         );
     }
     
-    function getIdentityNumber() public view returns (uint) {
-        return identityNumber;
+    function getIdentityNumber() public pure returns (uint) {
+        return 0;
     }
     
 }
