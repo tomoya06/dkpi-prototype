@@ -24,7 +24,7 @@ async function main() {
         return
     }
     
-    const dpki = new DPKI(userConfig)
+    const dpki = new DPKI(userConfig, 'http://192.168.40.1:8545')
     let idNum = await dpki.getIdentityNumber()
     console.log('CURRENT IDENTITY AMOUNT : ' + idNum)
 
@@ -43,7 +43,7 @@ async function main() {
     console.log('WAKE UP')
 
     console.log('CONNECTING TO SERVER...')
-    let dClient = new DClient(dpki, keypair)
+    let dClient = new DClient(dpki, keypair, 'http://192.168.40.1:80')
 }
 
 main()
