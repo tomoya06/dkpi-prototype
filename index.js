@@ -45,10 +45,15 @@ async function main() {
     console.log('CONNECTING TO SERVER...')
     let dClient = new DClient(dpki, keypair)
 
-    setTimeout(() => {
-        let logs = dClient.getlog()
-        console.log(logs)
-    }, 5000);
+    while (!dClient.socket.isChallenged) {}
+
+    console.log('START SENDING MESSAGE...')
+
+    for (let i=0; i<10; i++) {
+        dClient.send('HELLO')
+        sleep(2000)
+    }
+
 }
 
 main()
