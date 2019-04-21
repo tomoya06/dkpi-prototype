@@ -49,7 +49,10 @@ async function main() {
         console.log('START SENDING MESSAGE...')
         setInterval(() => {
             dClient.send('hello')
-            console.log(dClient.stages)
+            let mappedLog = dClient.stages.map(item => 
+                `${item.name}  | ${item.delta}  | ${item.tDelta}`
+            )
+            console.log(mappedLog.join('\n'))
         }, 2000);
     }, 5000);
 
