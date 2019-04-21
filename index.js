@@ -44,6 +44,11 @@ async function main() {
 
     console.log('CONNECTING TO SERVER...')
     let dClient = new DClient(dpki, keypair)
+
+    setTimeout(() => {
+        let logs = dClient.getlog()
+        console.log(logs)
+    }, 5000);
 }
 
 main()
