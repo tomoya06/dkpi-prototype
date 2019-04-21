@@ -47,11 +47,10 @@ async function main() {
 
     setTimeout(() => {
         console.log('START SENDING MESSAGE...')
-        for (let i=0; i<10; i++) {
-            dClient.send('HELLO')
+        setInterval(() => {
+            dClient.send('hello')
             console.log(dClient.stages)
-            sleep(2000)
-        }
+        }, 2000);
     }, 5000);
 
 }
