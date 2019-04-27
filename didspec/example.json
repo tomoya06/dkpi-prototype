@@ -1,0 +1,52 @@
+{
+  "@context": "https://www.w3.org/2019/did/v1",
+  "id": "did:cpc:uuid:1234567890",
+  "pubkey": [{
+    "id": "did:cpc:uuid:1234567890#keys1",
+    "type": "RsaVerificationKey2018",
+    "content": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+  }, {
+    "id": "did:cpc:uuid:1234567890#keys2",
+    "type": "Ed25519VerificationKey2018",
+    "content": "H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+  }],
+  "authentication": [
+    "did:cpc:uuid:1234567890#keys2",
+    {
+      "id": "did:cpc:uuid:1234567890#authkeys1",
+      "type": "RsaVerificationKey2018",
+      "content": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+    }
+  ],
+  "authorization": [{
+    "id": "did:cpc:uuid:1234567890example",
+    "scope": ["gasoline:pay", "gasoline:refill", "all:payment", "all:location"],
+    "expiredAt": "2019-05-27T12:43:10.667Z",
+    "pubkey": "did:cpc:uuid:1234567890#keys1"
+  }, {
+    "id": "did:cpc:uuid:1234567890example2",
+    "scope": ["parking:pay", "parking:location"],
+    "expiredAt": "2019-05-27T12:43:10.667Z",
+    "pubkey": {
+      "type": "RsaVerificationKey2018",
+      "content": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+    }
+  }],
+  "service": [{
+    "id":"did:cpc:uuid:1234567890;github",
+    "scope": ["repo:create", "repo:delete", "repo:fork"],
+    "endpoint": "https://github.com",
+    "expiredAt": "2019-05-27T12:43:10.667Z",
+    "description": "Github Service"
+  }, {
+    "id": "did:cpc:uuid:1234567890;inbox",
+    "scope": ["inbox:send", "inbox:receive", "inbox:update"],
+    "serviceEndpoint": "https://social.example.com/83hfh37dj",
+    "expiredAt": "2019-05-27T12:43:10.667Z",
+    "description": "My public social inbox",
+    "spamCost": {
+      "amount": "0.50",
+      "currency": "USD"
+    }
+  }]
+}
