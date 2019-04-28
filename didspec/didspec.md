@@ -29,12 +29,13 @@ String
 
 String
 
-文档拥有主体的id，id的格式为：
+文档拥有主体的身份id，id的格式为：
 
 ````
 legal-char      = [a-z0-9]
 legal-all-char  = [a-zA-Z0-9]
-id              = "did:" company-abbr ":" id-type ":" identifier [';' service] ['#' fragment]
+id-main         = "did:" company-abbr ":" id-type ":" identifier
+id              = id-main [';' service] ['@' id-main] ['#' fragment] 
 company-abbr    = legal-char{3, 4}
 id-type         = legal-char{3, 4}
 identifier      = legal-all-char{24,}
@@ -68,12 +69,12 @@ Array
 
 声明该主体的授权主体，包含多组，每组授权内容包括
 
-* id：授权主体的id，
+* id：授权记录id，用于索引对应的私钥，记录id'@'后跟的身份id就是该授权记录被授权者的身份id
 * scope：授权范围，包含多条，每条的格式可参考`[service]:[operation]`
 * expiredAt：授权截止期限，
 * pubkey：该授权主体进行交互时使用的公钥，可指定一个公钥ID(String)，或单独声明一个ID(Object)，包含type和content字段。
 
-在授权范围以内，被授权主体可以代替本主体执行相应操作。
+在授权范围以内，被授权主体可以代替本主体执行相应操作。每个被授权主体可以有多条授权记录，根据授权类型和截止期限的不同来分成不同记录存储。
 
 ### `service`
 
@@ -139,9 +140,10 @@ Array
 
 2. 供应方推荐服务
 
-
-
-
 #### 服务内容交互
 
+
+## 数据存储
+
+在上述交互过程中，不同场景下的密钥或token是交互安全的关键，而且所有的密钥和token都是不可公开的。本地数据安全存储的解决方案，一是使用定制的安全存储芯片或存储模块，二是本地搭建SQL数据库，将数据安全问题转换为数据库安全问题。每组密钥或token都可以根据对应的id，如公钥id、服务id、
 
