@@ -20,3 +20,7 @@ keys
 *.pub
 *.csr
 *.srl
+
+# IDE config files
+.vscode
+.idea
