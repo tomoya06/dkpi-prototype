@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>基于区块链的智能设备自主交互系统设计 - 去中心化物联网数字身份管理体系的设计与实现</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%99%BA%E8%83%BD%E8%AE%BE%E5%A4%87%E8%87%AA%E4%B8%BB%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1---%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%89%A9%E8%81%94%E7%BD%91%E6%95%B0%E5%AD%97%E8%BA%AB%E4%BB%BD%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0">基于区块链的智能设备自主交互系统设计 - 去中心化物联网数字身份管理体系的设计与实现</h1>
+<h2 id="%E7%9B%AE%E5%BD%95">目录</h2>
+<ol>
+<li>引言
+<ol>
+<li>研究背景</li>
+<li>研究现状</li>
+<li>研究内容</li>
+<li>论文结构</li>
+</ol>
+</li>
+<li>相关技术
+<ol>
+<li>区块链
+<ol>
+<li>数据结构</li>
+<li>共识协议</li>
+<li>特点</li>
+</ol>
+</li>
+<li>智能合约</li>
+<li>去中心化虚拟货币
+<ol>
+<li>账户</li>
+<li>钱包</li>
+<li>交易</li>
+</ol>
+</li>
+<li>以太坊
+<ol>
+<li>平台介绍</li>
+<li>以太坊开发工具</li>
+</ol>
+</li>
+<li>物联网
+<ol>
+<li>定义</li>
+<li>常见通信协议
+<ol>
+<li>CoAP</li>
+<li>MQTT</li>
+<li>Web Socket</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>密码学
+<ol>
+<li>对称加密技术</li>
+<li>非对称加密技术</li>
+<li>数字签名</li>
+<li>加密算法</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>相关方案
+<ol>
+<li>去中心化方案
+<ol>
+<li>Mathijs Hendrik Hoogland - A Distributed Public Key Infrastructure for the IoT</li>
+<li>Mustafa Al-Bassam - SCPKI: A Smart Contract-based PKI and Identity System</li>
+<li>Veres One DID</li>
+</ol>
+</li>
+<li>中心化方案
+<ol>
+<li>阿里云物联网设备身份认证</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>设计方案
+<ol>
+<li>需求分析</li>
+<li>设计思路
+<ol>
+<li>基本数字身份</li>
+<li>数字身份拓展：DID</li>
+<li>DID授权</li>
+</ol>
+</li>
+<li>系统构成
+<ol>
+<li>系统架构</li>
+<li>术语清单</li>
+</ol>
+</li>
+<li>流程概述
+<ol>
+<li>身份注册</li>
+<li>身份鉴定</li>
+<li>身份更新</li>
+<li>身份注销</li>
+<li>通信交互</li>
+<li>授权交互</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>方案实现
+<ol>
+<li>技术分析
+<ol>
+<li>开发环境</li>
+<li>开发语言</li>
+<li>开发库和组件</li>
+</ol>
+</li>
+<li>流程实现</li>
+</ol>
+</li>
+<li>方案测试
+<ol>
+<li>测试案例
+<ol>
+<li>案例设计</li>
+<li>案例分析</li>
+</ol>
+</li>
+<li>测试案例实现</li>
+<li>测试流程
+<ol>
+<li>身份相关</li>
+<li>通信交互</li>
+<li>授权交互</li>
+</ol>
+</li>
+<li>测试结果</li>
+</ol>
+</li>
+<li>结论与展望
+<ol>
+<li>项目总结</li>
+<li>项目展望</li>
+</ol>
+</li>
+</ol>
+
+    </body>
+    </html>

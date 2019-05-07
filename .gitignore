@@ -21,6 +21,9 @@ keys
 *.csr
 *.srl
 
+# developer key files
+dbkey.json
+
 # IDE config files
 .vscode
 .idea
