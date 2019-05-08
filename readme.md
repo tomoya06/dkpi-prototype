@@ -2,6 +2,12 @@
 
 Graduation Project of tomoya06. Directed by Pro. Long.
 
+## Directory
+
+* auth.xxxx.js: authorization process with OAuth2
+* auths.xxx.js: authorization process with zk-snark
+* index.xxx.js: did basic process
+
 ## Environment
 
 * Development: Ubuntu 18.06 x64 on VMWare / Windows 10
