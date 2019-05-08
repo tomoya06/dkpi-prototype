@@ -1,3 +1,3 @@
-const Auth = require('./lib/AUTHapi')
+const Auth = require('./lib/AUTHapi');
 
-new Auth()
+new Auth();

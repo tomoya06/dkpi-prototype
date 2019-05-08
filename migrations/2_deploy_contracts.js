@@ -1,5 +1,5 @@
-var DPKI = artifacts.require("DPKI");
+const DPKI = artifacts.require('DPKI');
 
-module.exports = function(deployer) {
+module.exports = function (deployer) {
   deployer.deploy(DPKI);
 };
