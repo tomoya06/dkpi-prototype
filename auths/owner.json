@@ -1,0 +1,12 @@
+{
+  "tokens": [
+    {
+      "token": "1a9b3caa2eb2f44ae2a3b332b55ea66803c1c3217da01efa6848928769038a20",
+      "thash": "36928ee16f30168b4982f5f26f21a4acdc4e9d8d2aa891460fbaa2fd58a3daec",
+      "did": "did:cpc:uuid:subid1",
+      "scope": ["douban:all"],
+      "type": "authorization",
+      "expiredAt": "2019-05-27T12:43:10.667Z"
+    }
+  ]
+}

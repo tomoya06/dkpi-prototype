@@ -1,0 +1,10 @@
+{
+  "tokens": [
+    {
+      "token": "1a9b3caa2eb2f44ae2a3b332b55ea66803c1c3217da01efa6848928769038a20",
+      "scope": ["douban:all"],
+      "type": "delegation",
+      "expiredAt": "2019-05-27T12:43:10.667Z"
+    }
+  ]
+}
