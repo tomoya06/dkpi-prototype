@@ -32,8 +32,8 @@
 
 实现相关文件：
 
-* [auth.delegation.js](auth.delegation.js)：被授权主体脚本
-* [lib/AUTHapi.js](lib/AUTHapi.js)：授权相关api库
+* [auth.delegation.js](/auth.delegation.js)：被授权主体脚本
+* [lib/AUTHapi.js](/lib/AUTHapi.js)：授权相关api库
 
 ### 2. 使用零知识证明实现的DID授权系统
 
