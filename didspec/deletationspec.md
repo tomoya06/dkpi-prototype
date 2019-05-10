@@ -55,6 +55,6 @@
 
 实现相关文件：
 
-* [auths.delegation.js](auths.delegation.js)：被授权主体脚本
-* [auths.service.js](auths.service.js)：服务提供方脚本
+* [auths.delegation.js](/auths.delegation.js)：被授权主体脚本
+* [auths.service.js](/auths.service.js)：服务提供方脚本
 
