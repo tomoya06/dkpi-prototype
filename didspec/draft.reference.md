@@ -14,4 +14,6 @@
 14. 库罗斯. 计算机网络: 自顶向下方法[M]. 机械工业出版社, 2009.
 15. Buckley J. From RFID to the Internet of Things: Pervasive networked systems[J]. European Union Directorate for Networks and Communication Technologies, 2006.
 16. ISO - MQTT https://www.iso.org/standard/69466.html 
-17. 
+17. websocket协议
+18. http协议
+19. 51%攻击
